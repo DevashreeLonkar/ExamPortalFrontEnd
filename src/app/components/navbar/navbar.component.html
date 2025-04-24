@@ -14,7 +14,8 @@
    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"> 
       <mat-icon>share</mat-icon>
     </button> -->
-    <a 
+    <a
+    *ngIf="!login.isLoggedIn()" 
     [routerLink]="'/login'"
     mat-button class="login-button" aria-label="Login">
         <!-- <mat-icon>login</mat-icon> -->
@@ -22,11 +23,29 @@
     </a>
 
       <a 
+      *ngIf="!login.isLoggedIn()" 
       [routerLink]="'/signup'"
       mat-button class="login-button mr10 ml10" aria-label="Register">
         <!-- <mat-icon>Register</mat-icon> -->
         <span class="login-text">Register</span>
     </a>
+
+
+
+    <a 
+    *ngIf="login.isLoggedIn()" 
+    mat-button class="login-button mr10 ml10" aria-label="Register">
+      {{ login.getUser().username }}
+  </a>
+
+
+    <a 
+    (click)="logout()"
+    *ngIf="login.isLoggedIn()" 
+    mat-button class="login-button mr10 ml10" aria-label="Register">
+      <!-- <mat-icon>Register</mat-icon> -->
+      <span class="login-text">Logout</span>
+  </a>
 
   </mat-toolbar>
   
