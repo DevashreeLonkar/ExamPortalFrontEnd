@@ -6,6 +6,7 @@ import baseUrl from './helper';
   providedIn: 'root'
 })
 export class UserService {
+  [x: string]: any;
 
   constructor(
     private http:HttpClient
