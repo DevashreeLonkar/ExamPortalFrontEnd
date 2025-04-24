@@ -1,1 +1,32 @@
 <!--<p>navbar works!</p>-->
+<mat-toolbar color="primary">
+    <a
+    routerLink="/" 
+    mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu_book</mat-icon>
+    </a>
+    <span>Exam Portal</span>
+    <span class="example-spacer"></span>
+    <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        Login 
+      <mat-icon>login</mat-icon>
+    </button>
+   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"> 
+      <mat-icon>share</mat-icon>
+    </button> -->
+    <a 
+    [routerLink]="'/login'"
+    mat-button class="login-button" aria-label="Login">
+        <!-- <mat-icon>login</mat-icon> -->
+        <span class="login-text">Login</span>
+    </a>
+
+      <a 
+      [routerLink]="'/signup'"
+      mat-button class="login-button mr10 ml10" aria-label="Register">
+        <!-- <mat-icon>Register</mat-icon> -->
+        <span class="login-text">Register</span>
+    </a>
+
+  </mat-toolbar>
+  
