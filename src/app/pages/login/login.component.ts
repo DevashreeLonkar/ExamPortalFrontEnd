@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
 //import { Router } from 'express';
 // import { console } from 'inspector';
 // import { error } from 'console';
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit{
     password:'',
   };
 
-  constructor(private snack: MatSnackBar, private login:LoginService, private router: Router){}
+  constructor(private snack: MatSnackBar, private login:LoginService, private router: Router, private cd: ChangeDetectorRef){}
 
   ngOnInit(): void {
     
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit{
   formSubmit(){
     console.log('Login button clicked');
 
-    if(this.loginData.username.trim()== '' ||  this.loginData.username == null){
+    if(this.loginData.username.trim() === '' ||  this.loginData.username == null){
       this.snack.open('Username is required', '',{
         duration: 3000,
       });
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit{
     }
 
 
-    if(this.loginData.password.trim()== '' ||  this.loginData.password == null){
+    if(this.loginData.password.trim() === '' ||  this.loginData.password == null){
       this.snack.open('Password is required', '',{
         duration: 3000,
       });
@@ -54,17 +55,24 @@ export class LoginComponent implements OnInit{
           this.login.setUser(user);
           console.log(user);
 
+          const role = user.authorities?.[0]?.authority ?? '';
+
           if(this.login.getUserRole() == 'ADMIN'){
          //   window.location.href= '/admin';
-         this.router.navigate(['admin'])
+         this.router.navigate(['admin']);
+         this.login.loginStatusSubject.next(true);
+         this.cd.detectChanges();
           }
           
           else if(this.login.getUserRole() == 'NORMAL'){
               //window.location.href= '/user-dashboard'; 
-              this.router.navigate(['user-dashboard'])  
+              this.router.navigate(['user-dashboard']) ;
+              this.login.loginStatusSubject.next(true);
+              this.cd.detectChanges();
           } 
           else{
-            this.login.logout;
+            this.login.logout();
+            this.router.navigate(['/login']);
           }
 
         });

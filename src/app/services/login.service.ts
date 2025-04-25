@@ -2,11 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import baseUrl from './helper';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+
+  public loginStatusSubject= new Subject<boolean>();
 
   constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) { }
 
@@ -20,11 +23,12 @@ export class LoginService {
   }
 
   // login user: store token
-  public loginUser(token: any) {
+  public loginUser(token: string): boolean {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem('token', token);
+      return true;
     }
-    return true;
+    return false;
   }
 
   // check login status
