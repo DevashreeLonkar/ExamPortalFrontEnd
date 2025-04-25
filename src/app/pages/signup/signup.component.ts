@@ -39,11 +39,17 @@ export class SignupComponent implements OnInit{
         //alert('successs');
         Swal.fire('Successfully Done !!', 'User ID is ' +data.id, 'success');
       },
+      // (error) => {
+      //   console.log(error);
+      //   //alert('Something went wrong');
+      //   this.snack.open('Something went wrong', '',{
+      //     duration:3000,
+      //   });
+      // }
       (error) => {
         console.log(error);
-        //alert('Something went wrong');
-        this.snack.open('Something went wrong', '',{
-          duration:3000,
+        this.snack.open(error.error || 'Something went wrong', '', {
+          duration: 3000,
         });
       }
     );

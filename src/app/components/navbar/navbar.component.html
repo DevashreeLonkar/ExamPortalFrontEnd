@@ -15,7 +15,7 @@
       <mat-icon>share</mat-icon>
     </button> -->
     <a
-    *ngIf="!login.isLoggedIn()" 
+    *ngIf="!isLoggedIn"  
     [routerLink]="'/login'"
     mat-button class="login-button" aria-label="Login">
         <!-- <mat-icon>login</mat-icon> -->
@@ -23,7 +23,7 @@
     </a>
 
       <a 
-      *ngIf="!login.isLoggedIn()" 
+      *ngIf="!isLoggedIn" 
       [routerLink]="'/signup'"
       mat-button class="login-button mr10 ml10" aria-label="Register">
         <!-- <mat-icon>Register</mat-icon> -->
@@ -33,15 +33,15 @@
 
 
     <a 
-    *ngIf="login.isLoggedIn()" 
+    *ngIf="isLoggedIn && user" 
     mat-button class="login-button mr10 ml10" aria-label="Register">
-      {{ login.getUser().username }}
+      {{ user.username }}
   </a>
 
 
     <a 
     (click)="logout()"
-    *ngIf="login.isLoggedIn()" 
+    *ngIf="isLoggedIn" 
     mat-button class="login-button mr10 ml10" aria-label="Register">
       <!-- <mat-icon>Register</mat-icon> -->
       <span class="login-text">Logout</span>
