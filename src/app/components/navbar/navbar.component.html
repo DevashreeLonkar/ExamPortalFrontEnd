@@ -34,7 +34,9 @@
 
     <a 
     *ngIf="isLoggedIn && user" 
-    mat-button class="login-button mr10 ml10" aria-label="Register">
+    mat-button class="login-button mr10 ml10" 
+    routerLink="/admin/profile"
+    aria-label="Register">
       {{ user.username }}
   </a>
 

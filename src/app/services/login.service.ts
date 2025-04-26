@@ -15,7 +15,7 @@ export class LoginService {
 
   // current user that is logged in
   public getCurrentUser() {
-    return this.http.get(`${baseUrl}/current-user`);
+    return this.http.get(`${baseUrl}/user/current-user`);
   }
 
   public generateToken(loginData: any) {
