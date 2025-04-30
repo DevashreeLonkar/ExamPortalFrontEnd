@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { title } from 'process';
+import { CategoryService } from '../../../services/category.service';
+import { error } from 'console';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-quiz',
@@ -8,21 +11,34 @@ import { title } from 'process';
 })
 export class AddQuizComponent implements OnInit{
 
-  categories=[
-    {
-      cid:2,
-      title:'Programming',
-    },
+  categories: any[] = [];
+  // categories=[
+  //   {
+  //     cid:2,
+  //     title:'Programming',
+  //   },
 
-    {
-      cid:2,
-      title:'Programming 1',
-    },
-  ]
+  //   {
+  //     cid:2,
+  //     title:'Programming 1',
+  //   },
+  // ]
 
-  constructor(){}
+  constructor(private _cat:CategoryService){}
   ngOnInit(): void {
     
+    this._cat.categories().subscribe(
+      (data: any)=>{
+        //categories load
+        this.categories=data;
+        console.log(this.categories);
+      },
+
+      (error)=>{
+        console.log(error);
+        Swal.fire('Error!!', 'Error in loading data from Server','error');
+      }
+    );
   }
 
 }
