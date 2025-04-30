@@ -1,4 +1,4 @@
-<mat-card>
+<!-- <mat-card>
     <h1>All Categories</h1>
     <mat-list>
         <mat-list-item *ngFor="let c of categories">
@@ -11,4 +11,20 @@
         <div class="container text-center mt20">
             <button routerLink="/admin/add-category" mat-raised-button color="primary">Add New Category</button>
         </div>
+</mat-card> -->
+
+<mat-card>
+<!-- <div class="container"> -->
+    <h2>All Categories</h2>
+    <div *ngFor="let category of categories" class="category-card">
+      <mat-icon mat-list-icon>category</mat-icon>
+      <div class="details">
+        <h4>{{ category.title }}</h4>
+        <p>{{ category.description }}</p>
+      </div>
+    </div>
+    <div class="container text-center mt20">
+        <button routerLink="/admin/add-category" mat-raised-button color="primary">Add New Category</button>
+    </div>
+  <!-- </div> -->
 </mat-card>
