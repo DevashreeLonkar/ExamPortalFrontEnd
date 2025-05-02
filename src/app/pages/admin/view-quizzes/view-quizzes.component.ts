@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { title } from 'process';
 import { QuizService } from '../../../services/quiz.service';
 import Swal from 'sweetalert2';
+import { error } from 'console';
 
 @Component({
   selector: 'app-view-quizzes',
@@ -53,4 +54,26 @@ export class ViewQuizzesComponent implements OnInit {
     );
   }
 
+  //delete quiz
+  deleteQuiz(qid: any){
+ 
+    Swal.fire({
+      icon:'info',
+      title: 'Are you sure?',
+      confirmButtonText: 'Delete',
+      showCancelButton: true,
+    }).then((result)=>{
+      if(result.isConfirmed)
+      {
+        //delete
+        this._quiz.deleteQuiz(qid).subscribe((data)=>{
+          this.quizzes= this.quizzes.filter((quiz) => quiz.qid != qid);
+          Swal.fire('Success !!', 'Quiz Deleted', 'success');
+        },
+      (error)=>{
+        Swal.fire('Error !!', 'Error in deleting quiz', 'error');
+      });
+      }
+    });
+  }
 }
