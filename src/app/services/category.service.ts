@@ -9,6 +9,8 @@ export class CategoryService {
 
   constructor(private _http: HttpClient) { }
 
+
+  //Load all categories
   public categories(){
     return this._http.get(`${baseUrl}/category/`);
   }
@@ -17,4 +19,6 @@ export class CategoryService {
   public addCategories(category: any){
     return this._http.post(`${baseUrl}/category/`, category);
   }
+
+  
 }
