@@ -83,7 +83,7 @@ const routes: Routes = [
         },
 
         {
-          path:'add-question/:qid',
+          path:'add-question/:qid/:title',
           component: AddQuestionComponent, 
         },
 
