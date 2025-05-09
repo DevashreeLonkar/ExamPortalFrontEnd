@@ -1,1 +1,46 @@
-<p>add-question works!</p>
+<div class="bootstrap-wrapper">
+    <div class="row mt20">
+        <div class="col-md-12">
+            <h1>Adding to Quiz</h1>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-subtitle>
+                        Enter details of new Question
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <form>
+                        <mat-form-field class="w100">
+                            <mat-label>Write question content</mat-label>
+                            <textarea rows="8"
+                            matInput
+                            placeholder="Ex. It makes me feel.."
+                            ></textarea>
+                        </mat-form-field>
+
+                        <!-- Options -->
+                         <div class="col-md-6">
+                            <!-- Option 1 -->
+                             <mat-form-field class="w100">
+                                <mat-label>
+                                    Enter option 1
+                                </mat-label>
+                                <input type="text" matInput>
+                             </mat-form-field>
+                         </div>
+                         <div class="col-md-6">
+                            <!-- Option 2 -->
+                         </div>
+
+                         <div class="col-md-6">
+                            <!-- Option 3 -->
+                         </div>
+                         <div class="col-md-6">
+                            <!-- Option 4 -->
+                         </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
