@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AddQuestionComponent implements OnInit{
 
   qId: any;
+  qTitle: any;
   question={
     quiz: {
       qId: null
@@ -25,6 +26,7 @@ export class AddQuestionComponent implements OnInit{
 
   ngOnInit(): void {
    this.qId= this._route.snapshot.params['qid'];
+   this.qTitle= this._route.snapshot.params['title'];
    this.question.quiz['qId']= this.qId;
   }
 
