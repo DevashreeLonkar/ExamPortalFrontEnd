@@ -4,6 +4,7 @@ import { QuizService } from '../../../services/quiz.service';
 import Swal from 'sweetalert2';
 import { error } from 'console';
 import { QuestionService } from '../../../services/question.service';
+// import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-add-question',
@@ -11,7 +12,7 @@ import { QuestionService } from '../../../services/question.service';
   styleUrl: './add-question.component.css'
 })
 export class AddQuestionComponent implements OnInit{
-
+  // public Editor=ClassicEditor;
   qId: any;
   qTitle: any;
   question={
