@@ -19,7 +19,7 @@ constructor(private _route:ActivatedRoute, private _quiz:QuizService){}
       if(this.catId == 0){
         console.log('Load all the Quiz');
     
-        this._quiz.quizzes().subscribe(
+        this._quiz.getActiveQuizzes().subscribe(
           (data:any)=>{
             this.quizzes=data;
             console.log(this.quizzes);
@@ -30,7 +30,7 @@ constructor(private _route:ActivatedRoute, private _quiz:QuizService){}
           });
       } else{
         console.log('Load specific Quiz');
-        this._quiz.getQuizzesOfCategory(this.catId).subscribe(
+        this._quiz.getActiveQuizzesOfCategory(this.catId).subscribe(
           (data:any)=>{
             this.quizzes=data;
           },
