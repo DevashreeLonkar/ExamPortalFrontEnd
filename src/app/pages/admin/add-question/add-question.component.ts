@@ -54,7 +54,7 @@ export class AddQuestionComponent implements OnInit{
       return;
     }
     //form submit
-    this._question.addQuestion(this.question).subscribe(
+    this._question.addQuestion(this.question,this.qId).subscribe(
     (data:any) =>{
       Swal.fire('Success', 'Question added, Add another one', 'success');
       this.question.content='';
