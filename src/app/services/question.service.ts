@@ -18,6 +18,10 @@ export class QuestionService {
     return this._http.get<Question[]>(`${baseUrl}/question/quiz/all/${qid}`);
   }
 
+  public getQuestionsOfQuizForTest(qid: any): Observable<Question[]> {
+    return this._http.get<Question[]>(`${baseUrl}/question/quiz/all/${qid}`);
+  }
+
   //add question
   public addQuestion(question: any,qid: any){
     return this._http.post(`${baseUrl}/question/${qid}`, question);
