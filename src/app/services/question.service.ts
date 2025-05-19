@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class QuestionService {
+  [x: string]: any;
 
   constructor(private _http: HttpClient) { }
 
@@ -36,6 +37,17 @@ export class QuestionService {
   public evalQuiz(questions: any){
     return this._http.post(`${baseUrl}/question/eval-quiz`, questions);
   }
+
+  // get question
+  getQuestion(qid: number) {
+    return this._http.get(`${baseUrl}/question/${qid}`);
+  }
+
+  //update question
+  updateQuestion(question: any) {
+    return this._http.put(`${baseUrl}/question/`, question);
+  }
+
 }
 
 
