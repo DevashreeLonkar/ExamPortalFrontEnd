@@ -1,0 +1,51 @@
+<div class="container mt20">
+    <h2>Update Question</h2>
+    <form (ngSubmit)="formSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Question</mat-label>
+        <textarea matInput [(ngModel)]="question.content" name="content" required></textarea>
+      </mat-form-field>
+      <br/>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Option 1</mat-label>
+        <input matInput [(ngModel)]="question.option1" name="option1" required />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Option 2</mat-label>
+        <input matInput [(ngModel)]="question.option2" name="option2" required />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Option 3</mat-label>
+        <input matInput [(ngModel)]="question.option3" name="option3" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Option 4</mat-label>
+        <input matInput [(ngModel)]="question.option4" name="option4" />
+      </mat-form-field>
+      <br/>
+  
+      <!-- <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Correct Answer</mat-label>
+        <input matInput [(ngModel)]="question.answer" name="answer" required />
+      </mat-form-field>
+      <br/> -->
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Correct Answer</mat-label>
+        <mat-select [(ngModel)]="question.answer" name="answer" required>
+          <mat-option *ngIf="question.option1" [value]="question.option1">{{ question.option1 }}</mat-option>
+          <mat-option *ngIf="question.option2" [value]="question.option2">{{ question.option2 }}</mat-option>
+          <mat-option *ngIf="question.option3" [value]="question.option3">{{ question.option3 }}</mat-option>
+          <mat-option *ngIf="question.option4" [value]="question.option4">{{ question.option4 }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+  
+      <button mat-raised-button color="primary" type="submit">Update</button>
+    </form>
+  </div>
+  
