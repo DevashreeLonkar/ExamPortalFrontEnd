@@ -20,6 +20,7 @@ import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartComponent } from './pages/user/start/start.component';
 import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
+import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
 
 const routes: Routes = [
   {
@@ -114,7 +115,10 @@ const routes: Routes = [
         },
       ],
     },
-
+    {
+      path:'user-profile',
+      component: UserProfileComponent,
+    },
     {
       path: 'start/:qid',
       component: StartComponent,
