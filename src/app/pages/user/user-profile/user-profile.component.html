@@ -1,2 +1,43 @@
-<p>user-profile works!</p>
-<h3>hello</h3>
+<mat-card *ngIf="user">
+    <!-- {{user | json}} -->
+  <h1>Your Profile Details</h1>
+  <mat-card-content>
+      <div class="bootstrap-wrapper">
+          <div class="container text-center">
+              <div class="container">
+                  <img src="https://tse3.mm.bing.net/th?id=OIP.dCpgPQ0i-xX2gZ-yonm54gHaHa&pid=Api&P=0&h=220" 
+                  alt=""
+                  class="profile-image"
+                  />
+                  <h1 class="mt20">{{user.firstName}}  {{user.lastName}}</h1>
+              </div>
+              <div class="row">
+                  <div class="col-md-10 offset-md-1">
+                      <!-- table Details -->
+                      <table class="table text-center">
+                          <tr>
+                              <td>Username</td>
+                              <td>{{user.username}}</td>
+                          </tr>
+  
+                          <tr>
+                              <td>User ID</td>
+                              <td>EXAM {{user.id}}</td>
+                          </tr>
+  
+                          <tr>
+                              <td>Phone</td>
+                              <td>{{user.phone}}</td>
+                          </tr>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </mat-card-content>
+  <mat-card-actions>
+      <div class="text-center w-100">
+      <button mat-raised-button color="primary">UPDATE</button>
+  </div>
+    </mat-card-actions>
+  </mat-card>

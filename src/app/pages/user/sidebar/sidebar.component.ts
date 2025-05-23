@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../../services/category.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { error } from 'console';
+import { LoginService } from '../../../services/login.service';
+import { User } from '../../../model/user';
 
 @Component({
   selector: 'app-sidebar-user',
@@ -10,6 +12,7 @@ import { error } from 'console';
 })
 export class SidebarComponent implements OnInit {
   categories: any;
+  user: User | null = null;
 
   constructor(private _cat:CategoryService, private _snack:MatSnackBar){}
 
@@ -24,4 +27,5 @@ export class SidebarComponent implements OnInit {
         });
       });
   }
+  
 }

@@ -1,16 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { error } from 'console';
-
-interface User {
-  id: number;
-  firstName: string;
-  lastName: string;
-  username: string;
-  phone: string;
-  enabled: boolean;
-  authorities: { authority: string }[];
-}
+import { User } from '../../model/user';
 
 @Component({
   selector: 'app-profile',
